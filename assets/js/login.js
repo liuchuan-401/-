@@ -29,21 +29,44 @@ $(function(){
         }
       })
 
+
+      // 注册事件
     $('#form-reg').on('submit',function(e){
         e.preventDefault()
+        // 提取数据
         var data = {
-            username: $('#form-reg [name=uname]').val(),
+            username: $('#form-reg [name=username]').val(),
             password: $('#form-reg [name=password]').val()
           }
-          $.post('http://ajax.frontend.itheima.net/api/reguser', data, function(res) {
+          // 发送post请求注册
+          $.post('/api/reguser', data, function(res) {
           console.log(res);  
-        //   if (res.status !== 0) {
-        //       return layer.msg(res.message)
-        //     }
-        //  layer.msg('注册成功，请登录！')
-        //     // 模拟人的点击行为
-        //     $('#link_login').click()
+          if (res.status !== 0) {
+              return layer.msg(res.message)
+            }
+         layer.msg('注册成功，请登录！')
+            // 模拟人的点击行为
+            $('#link_login').click()
           })
+    })
+
+
+    // 登录事件
+    $('#login-box').submit(function(e){
+      e.preventDefault()
+      $.ajax({
+        type:'POST',
+        url:'/api/login',
+        data:$('#login-box').serialize(),
+        success:function(res){
+          console.log(res);
+          if(res.status!==0){return layer.msg(res.message)} 
+          layer.msg('登录成功！')
+          // 将登录成功得到的字符串保存到本地存储中
+          localStorage.setItem('token',res.token)
+          location.href='/index.html'
+        }
+      })
     })
 
 })
