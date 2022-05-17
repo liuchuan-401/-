@@ -1,0 +1,64 @@
+.layui-footer {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* 设置图标样式 */
+.iconfont {
+    margin-right: 8px;
+}
+
+.layui-icon {
+    margin-left: 20px;
+    margin-right: 8px;
+}
+
+/* 设置iframe样式 */
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* 隐藏layui-body的滚动条 */
+.layui-body {
+    overflow: hidden;
+}
+
+/* 清除layui中默认的a链接动画 */
+a {
+    transition: none !important;
+}
+
+/* 美化左侧导航栏的样式 */
+.userinfo {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 12px;
+    user-select: none;
+}
+
+.layui-side-scroll .userinfo {
+    border-bottom: 1px solid #282b33;
+}
+
+.layui-nav-img {
+    width: 40px;
+    height: 40px;
+}
+
+/* 设置没有图片的头像样式 */
+.text-avatar {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color:#009688;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    position:relative;
+    top:4px;
+    margin-right: 10px;
+}
